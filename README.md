@@ -23,7 +23,6 @@
 
 
 
-
 ## Instructions:
 
 
@@ -32,6 +31,17 @@
 
 
 ## Technologies Used:
+
+- HTML
+- CSS
+- JavaScript
+- BootStrap 4.5
+- Python
+- Django
+- PostgreSQL
+- Heroku Deployment
+- Django Auth
+- Django Template
 
 
 
