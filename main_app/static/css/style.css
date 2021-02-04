@@ -8,9 +8,17 @@ body {
     flex-direction: column;
     margin:0;
     padding:0;
+
   }
 
   main {
     flex: 1 0 auto;
   }
+  .fa-home,.fa-plus,.fa-user{
+    color: white;
+  }
+  .fa-home:hover,.fa-plus:hover,.fa-user:hover{
+    color: black;
+  }
+
 
