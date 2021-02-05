@@ -8,7 +8,7 @@
 
     <hr/>
     <p class="caption">
-      <a href="/posts/{{post.id}}">
+      <a href="{% url 'detail' post.id %}">
         <span class="card-username"><h6>{{post.name}}</h6></span>
       </a>
       {{post.caption}}
