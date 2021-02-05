@@ -1,7 +1,6 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends "base.html"%}
+{% block content%}
 
- {% for post in posts %}
 <div class="card" style="width: 22rem">
   <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.ngsversion.1546554600360.adapt.1900.1.jpg" class="card-img-top" alt="IMAGE" />
   <div class="card-body">
@@ -18,5 +17,5 @@
     </p>
   </div>
 </div>
-{%endfor%}
-{%endblock%}
+
+{% endblock%}
