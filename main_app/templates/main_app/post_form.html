@@ -1,0 +1,13 @@
+{%extends 'base.html' %}
+{%block content%}
+
+<h3> Post a picture of your pet! 🐶</h3>
+<form action="" method="POST">
+  {%csrf_token%}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+</form>
+
+{%endblock%}
