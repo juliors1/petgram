@@ -7,14 +7,7 @@ def home(request):
 
 
 def posts_index(request):
+    posts = Post.objects.all()
     return render(request, "posts/index.html", {"posts": posts})
 
 
-class Post:  # Note that parens are optional if not inheriting from another class
-  def __init__(self, caption):
-    self.caption = caption
-
-
-posts = [
-  Post('Ello mate very long but sweet caption. '),
-]

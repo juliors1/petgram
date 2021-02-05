@@ -5,15 +5,16 @@
 <div class="card" style="width: 22rem">
   <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.ngsversion.1546554600360.adapt.1900.1.jpg" class="card-img-top" alt="IMAGE" />
   <div class="card-body">
-    <span class="card-username">{{post.user}}</span>
-    <hr />
+
+    <hr/>
     <p class="caption">
-      <span class="card-username"><p>{{post.user}}</p></span>
+      <a href="/posts/{{post.id}}">
+        <span class="card-username"><h6>{{post.name}}</h6></span>
+      </a>
       {{post.caption}}
       <i class="far fa-heart"></i>
       <i class="far fa-comment fa-flip-horizontal	"></i>
       <i class="fas fa-share-alt"></i>
-
     </p>
   </div>
 </div>
