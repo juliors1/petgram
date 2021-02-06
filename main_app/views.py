@@ -3,11 +3,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post
 class PostCreate(CreateView):
     model = Post
-    fields = ["caption"]
+    fields = ["name","caption"]
 
 class PostUpdate(UpdateView):
     model = Post
-    fields = ["caption"]
+    fields = [ "name","caption"]
 
 class PostDelete(DeleteView):
     model = Post
