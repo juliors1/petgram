@@ -9,7 +9,9 @@ class PostUpdate(UpdateView):
     model = Post
     fields = ["caption"]
 
-
+class PostDelete(DeleteView):
+    model = Post
+    success_url = "/posts/"
 
 def home(request):
     return render(request, "home.html")
