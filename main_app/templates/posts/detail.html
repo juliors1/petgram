@@ -19,6 +19,9 @@
       <i class="fas fa-share-alt"></i>
     </p>
   </div>
+  <a href="{% url 'post_update' post.id %}">Edit</a>
+  <a href="{% url 'post_delete' post.id %}">Delete</a>
+
 </div>
 
 {% endblock%}
