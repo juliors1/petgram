@@ -1,5 +1,4 @@
-{% extends "base.html"%}
-{% block content%}
+{% extends "base.html"%} {% block content%}
 
 <div class="card" style="width: 22rem">
   <img
@@ -19,9 +18,10 @@
       <i class="fas fa-share-alt"></i>
     </p>
   </div>
-  <a href="{% url 'post_update' post.id %}">Edit</a>
-  <a href="{% url 'post_delete' post.id %}">Delete</a>
-
+  <div class="card-action">
+  <a class="btn btn-dark" href="{% url 'post_update' post.id %}" role="button">Edit</a>
+  <a class="btn btn-outline-danger" href="{% url 'post_delete' post.id %}" role="button">Delete</a>
+  </div>
 </div>
 
 {% endblock%}
