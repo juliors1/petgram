@@ -5,6 +5,11 @@ class PostCreate(CreateView):
     model = Post
     fields = ["name","caption"]
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user # form.instance are the posts
+        return super().form_valid(form)
+
+
 class PostUpdate(UpdateView):
     model = Post
     fields = [ "name","caption"]
