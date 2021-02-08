@@ -10,4 +10,5 @@ urlpatterns = [
     path("posts/<int:pk>/delete/", views.PostDelete.as_view(), name="post_delete"),
     path("accounts/signup/", views.signup, name="signup"),
     path("posts/<int:post_id>/add_photo", views.add_photo, name="add_photo"),
+    path("like/<int:pk>", views.LikeView, name="like_post"),
 ]
