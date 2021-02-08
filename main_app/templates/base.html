@@ -29,8 +29,13 @@
   <nav class="navbar bg-dark">
     <form class="form-inline">
       <a class="navbar-brand" href="{%url 'index'%}"><i class="fas fa-home"></i></a>
+      {% if user.is_authenticated %}
       <a class="navbar-brand" href="{%url 'posts_create'%}"><i class="fas fa-plus"></i></a>
       <a class="navbar-brand" href="/"><i class="fas fa-user"></i></a>
+      <a class="navbar-brand" href="{%url 'logout'%}">Log Out</a>
+      {% else %}
+      <a class="navbar-brand" href="{%url 'login'%}">Log In</a>
+      {% endif %}
     </form>
   </nav>
 </footer>
