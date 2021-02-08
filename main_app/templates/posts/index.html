@@ -18,5 +18,11 @@
     </p>
   </div>
 </div>
+<form action="{% url 'like_post' post.pk %}" method="POST">
+  {% csrf_token %}
+  <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-dark btn-sm">Like</button>
+
+</form>
+
 {%endfor%}
 {%endblock%}
