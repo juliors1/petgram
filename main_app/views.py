@@ -4,10 +4,10 @@ from .models import Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin,CreateView):
     model = Post
     fields = ["name","caption"]
 
@@ -16,11 +16,11 @@ class PostCreate(CreateView):
         return super().form_valid(form)
 
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin,UpdateView):
     model = Post
     fields = [ "name","caption"]
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = "/posts/"
 
