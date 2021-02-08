@@ -14,3 +14,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"post_id": self.id})
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
