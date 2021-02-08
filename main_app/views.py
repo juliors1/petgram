@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import Post, Photo
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -19,6 +21,10 @@ class PostCreate(LoginRequiredMixin,CreateView):
         form.instance.user = self.request.user # form.instance are the posts
         return super().form_valid(form)
 
+def LikeView(request, pk):
+    post = get_object_or_404(Post, id= request.POST.get("post_id"))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse("detail", args=[str(pk)]))
 
 class PostUpdate(LoginRequiredMixin,UpdateView):
     model = Post
