@@ -127,4 +127,4 @@ STATIC_URL = "/static/"
 
 LOGIN_REDIRECT_URL = "/posts/"
 
-LOGOUT_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
