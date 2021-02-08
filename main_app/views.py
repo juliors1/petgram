@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 class PostCreate(CreateView):
     model = Post
     fields = ["name","caption"]
