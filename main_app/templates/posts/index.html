@@ -3,26 +3,24 @@
 
  {% for post in posts %}
 <div class="card" style="width: 22rem">
-  <img src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.ngsversion.1546554600360.adapt.1900.1.jpg" class="card-img-top" alt="IMAGE" />
+  <img src="{{photo.url}}" class="card-img-top" alt="IMAGE" />
   <div class="card-body">
-
     <hr/>
     <p class="caption">
       <a href="{% url 'detail' post.id %}">
-        <span class="card-username"><h6>{{post.name}}</h6></span>
+        <span class="card-username"><h6>{{post.user}}</h6></span>
       </a>
       {{post.caption}}
-      <i class="far fa-heart"></i>
+    <form action="{% url 'like_post' post.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-dark btn-sm"><i class="far fa-heart"></i></button> - {{post.likes.count}} Likes
+    </form>
       <i class="far fa-comment fa-flip-horizontal	"></i>
       <i class="fas fa-share-alt"></i>
     </p>
   </div>
 </div>
-<form action="{% url 'like_post' post.pk %}" method="POST">
-  {% csrf_token %}
-  <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-dark btn-sm">Like</button>
 
-</form>
 
 {%endfor%}
 {%endblock%}
