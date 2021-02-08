@@ -2,20 +2,24 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Post, Photo
+from .models import Post, Photo, User
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .forms import UserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 import uuid
 import boto3
 
 
 S3_BASE_URL = "https://s3.us-east-1.amazonaws.com/"
 BUCKET = "petgram"
+
+
 class PostCreate(LoginRequiredMixin,CreateView):
     model = Post
-    fields = ["name","caption"]
+    fields = ["caption"]
 
     def form_valid(self, form):
         form.instance.user = self.request.user # form.instance are the posts
@@ -28,7 +32,7 @@ def LikeView(request, pk):
 
 class PostUpdate(LoginRequiredMixin,UpdateView):
     model = Post
-    fields = [ "name","caption"]
+    fields = [ "caption"]
 
 class PostDelete(LoginRequiredMixin,DeleteView):
     model = Post
@@ -45,7 +49,10 @@ def posts_index(request):
 @login_required
 def posts_detail(request, post_id):
     post = Post.objects.get(id=post_id)
-    return render(request, "posts/detail.html", {"post": post})
+    total_likes = post.total_likes()
+    return render(request, "posts/detail.html", {"post": post, "total_likes" : total_likes})
+
+
 
 def signup(request):
   error_message = ''
