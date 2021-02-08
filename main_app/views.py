@@ -3,6 +3,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
+
+
 class PostCreate(CreateView):
     model = Post
     fields = ["name","caption"]
@@ -23,12 +27,12 @@ class PostDelete(DeleteView):
 def home(request):
     return render(request, "home.html")
 
-
+@login_required
 def posts_index(request):
     posts = Post.objects.all()
     return render(request, "posts/index.html", {"posts": posts})
 
-
+@login_required
 def posts_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     return render(request, "posts/detail.html", {"post": post})
