@@ -4,3 +4,4 @@ from .models import Post, Photo, Profile
 admin.site.register(Post)
 admin.site.register(Photo)
 admin.site.register(Profile)
+# admin.site.register(Comment)

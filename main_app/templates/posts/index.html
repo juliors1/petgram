@@ -3,7 +3,11 @@
 
  {% for post in posts %}
 <div class="card" style="width: 22rem">
-  <img src="{{photo.url}}" class="card-img-top" alt="IMAGE" />
+   {% for photo in post.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{photo.url}}">
+    {% empty %}
+      <div class="card-panel">No Photos Uploaded</div>
+    {% endfor %}
   <div class="card-body">
     <hr/>
     <p class="caption">
@@ -13,10 +17,10 @@
       {{post.caption}}
     <form action="{% url 'like_post' post.id %}" method="POST">
       {% csrf_token %}
-      <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-dark btn-sm"><i class="far fa-heart"></i></button> - {{post.likes.count}} Likes
+      <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-outline-danger"><i class="far fa-heart fa-lg"></i></button> - {{post.likes.count}} Likes
     </form>
-      <i class="far fa-comment fa-flip-horizontal	"></i>
-      <i class="fas fa-share-alt"></i>
+     {% comment %} <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-dark"><i class="far fa-comment fa-flip-horizontal	 "></i> {% endcomment %}
+
     </p>
   </div>
 </div>

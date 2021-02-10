@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page-top">
+<h1>User List</h1>
+</div>
+
+<div class="card-list">
+    {% for user in users %}
+<div class="card shadow" style="width: 18rem;">
+    <img src="{{ user.profile.photo }}" class="card-img-top" alt="profile image">
+    <div class="card-body">
+      <h5 class="card-title">{{user.first_name}}</h5>
+      <p class="card-text">Year Joined: {{user.date_joined.year}}</p>
+      <form action="{% url 'users_detail' user.id %}">
+        <button type="submit" class="btn btn-dark">Profile</button>
+    </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

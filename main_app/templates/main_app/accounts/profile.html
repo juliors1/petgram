@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{user.profile.photo}}" class="card-img-top" alt="profile image">
+    <div class="card-body">
+      <h5 class="card-user">{{user.profile.user}}</h5>
+      <p class="card-text">{{user.profile.bio}}</p>
+      <hr>
+      {% for photo in post.photo_set.all %}
+      <img class="responsive" src="{{user.photo.url}}">
+    {% empty %}
+      <div class="card-panel">No Photos Uploaded</div>
+    {% endfor %}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -4,7 +4,7 @@
   {% for photo in post.photo_set.all %}
       <img class="responsive-img card-panel" src="{{photo.url}}">
     {% empty %}
-      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+      <div class="card-panel ">No Photos Uploaded</div>
     {% endfor %}
     {% if post.user == request.user %}
 <form action="{% url 'add_photo' post.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
@@ -18,19 +18,17 @@
     <hr />
     <p class="caption">
       <a href="/posts/{{post.id}}">
-        <span class="card-username"><h6>{{post.name}}</h6></span>
+        <span class="card-username"><h6>{{post.user}}</h6></span>
       </a>
       {{post.caption}}
-      <i class="far fa-heart"></i>
       <i class="far fa-comment fa-flip-horizontal"></i>
-      <i class="fas fa-share-alt"></i>
     </p>
   </div>
   <div class="card-action">
-  <form action="{% url 'like_post' post.id %}" method="POST">
-  {% csrf_token %}
-  <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-dark btn-sm">Like</button> - {{total_likes}} Likes
-</form>
+   <form action="{% url 'like_post' post.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-outline-danger"><i class="far fa-heart fa-lg"></i></button> - {{post.likes.count}} Likes
+    </form>
  {% if post.user == request.user %}
   <a class="btn btn-dark" href="{% url 'post_update' post.id %}" role="button">Edit</a>
   <a class="btn btn-outline-danger" href="{% url 'post_delete' post.id %}" role="button">Delete</a>
