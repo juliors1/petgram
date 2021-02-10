@@ -1,24 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
 html {
   box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    margin:0;
-    padding:0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: 'Righteous', cursive;
+}
 
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
-  .fa-home,.fa-plus,.fa-user{
-    color: white;
-  }
-  .fa-home:hover,.fa-plus:hover,.fa-user:hover{
-    color: black;
-  }
+.navbar-brand:hover {
+  color: black;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.card {
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px 5px #151618;
+
+}
+.card-registration {
+  margin: 0 auto;
+  box-shadow: 0 0 15px 5px #151618;
+  padding: 1rem;
+}
+.bottom-nav {
+  display:flex;
+  justify-content: space-around;
 
 
+}
