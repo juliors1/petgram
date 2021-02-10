@@ -1,7 +1,7 @@
 # Petgram
 
 ## Getting Started:
-<a href="https://petgram-app.herokuapp.com/">Petgram - This will prompt you to the deployed application, where you can show off your pets to the public.</a>
+<a href="https://petgram-app.herokuapp.com/">Petgram</a> - This will prompt you to the deployed application, where you can show off your pets to the public.
 
 ## Wireframe Images:
 
